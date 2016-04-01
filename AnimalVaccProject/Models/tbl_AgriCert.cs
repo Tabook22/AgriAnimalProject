@@ -27,6 +27,9 @@ namespace AnimalVaccProject.Models
         [Display(Name = "تاريخ الإنتهاء")]
         public System.DateTime ExpDate { get; set; }
 
+        [Display(Name ="حالة المربي")]
+        public string status{ get; set; }
+
         [Required(ErrorMessage = "الرجاء إختيار المربي")]
         [Display(Name = "إسم المربي")]
         public int FarmerId { get; set; }

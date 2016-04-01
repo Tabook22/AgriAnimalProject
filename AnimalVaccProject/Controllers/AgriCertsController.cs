@@ -131,12 +131,13 @@ namespace AnimalVaccProject.Controllers
                 //db.agricerts
                 //    .Where(q => q.AgriCertNo ==agrno)
                 //    .ForEach(q => q.AgriCertNo.RemoveAll(o => o.Value == null));
+                tbl_AgriCert agrcrt = new tbl_AgriCert();
+                agrcrt = db.agricerts.Where(x => x.AgriCertNo == agrno).First();
+                //var getFrm = from a in db.agricerts
+                //         where a.AgriCertNo == agrno
+                //         select a;
 
-                var getFrm = from a in db.agricerts
-                         where a.AgriCertNo == agrno
-                         select a;
-
-                db.agricerts.Remove(getFrm);
+                db.agricerts.Remove(agrcrt);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
