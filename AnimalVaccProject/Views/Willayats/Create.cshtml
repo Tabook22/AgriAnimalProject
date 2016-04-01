@@ -1,0 +1,36 @@
+﻿@model AnimalVaccProject.Models.tbl_Willayat
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>إضافة الولايات</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WName, "", new { @class = "text-danger" })
+            </div>
+           <label class="control-label col-md-2">
+               إسم الوية:
+           </label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="إضافة" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("قائمة الولايات", "Index")
+</div>

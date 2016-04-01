@@ -1,0 +1,79 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<AnimalVaccProject.ViewModels.FarmerDataView>
+<table id="wlist" class="table nlsts">
+    <tr class="hdr">
+        <th style="display:none;">
+            م
+        </th>
+        <th></th>
+        <th>
+            إسم المربي
+        </th>
+        <th>الرقم المدني</th>
+        <th>
+            إسم الولاية
+        </th>
+        <th>
+            إسم النيابة
+        </th>
+        <th>
+            إسم القرية
+        </th>
+        <th>الهاتف</th>
+        <th>الوظيفة</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="display:none;">
+                @Html.DisplayFor(modelItem => item.FarmerId)
+        </td>
+            <td>
+                <img src="~/Content/Images/Assets/001_55.png" />
+            </td>
+            <td>
+                
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.civilId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WName)
+            </td>
+            <td style="display:none;">@Html.DisplayFor(modelItem => item.WID)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NName)
+            </td>
+            <td style="display:none;">@Html.DisplayFor(modelItem => item.NID)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VName)
+            </td>
+            <td style="display:none;">@Html.DisplayFor(modelItem => item.VID)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td class="rf">
+                <a href="#" class="lnkEdit" data-controller-action="/Farmers/UpdateFarmer">تعديل</a>| @*the reason for using javascript:void(0) in the href is to prevent the browser from loading a new page, void is an operator that is used to return a null value so the browser will not be able to load a new page, and it requires a value to operate so we use void(0) *@
+                <a href="#" class="lnkDelete" data-controller-action="/Farmers/DeleteFarmer">حذف</a>
+            </td>
+        </tr>
+        }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("getFList",new {page,searchBy =Request.QueryString["searchBy"],search =Request.QueryString["search"]}))
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".lnkEdit").on("click", function (e) {
+            e.preventDefault();
+            console.log("أستغفر الله و أتوب إلية");
+        });
+    });
+</script>*@

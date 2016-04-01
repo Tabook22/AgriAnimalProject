@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.tbl_Dose>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    #anilst {
+        width: 20rem;
+        border: 1px solid #DFF0D8;
+    }
+
+    table {
+        width: 10rem;
+    }
+
+        table tr th {
+            text-align: right;
+            background-color: #DFF0D8;
+        }
+</style>
+<h2>قائمة الجرعات</h2>
+
+<p>
+    @Html.ActionLink("إضافة نوع جرعة جديدة", "Create")
+</p>
+<table id="anilst" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoseType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoseType)
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.DoseId }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.DoseId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model AnimalVaccProject.Models.tbl_Village
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>التفاصيل</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+       إسم النيابة:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.niyabat.NName)
+        </dd>
+
+        <dt>
+           إسم القرية:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.VID }) |
+    @Html.ActionLink("عودة للقائمة", "Index")
+</p>

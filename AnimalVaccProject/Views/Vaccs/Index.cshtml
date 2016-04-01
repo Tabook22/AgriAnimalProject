@@ -1,0 +1,78 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<AnimalVaccProject.ViewModels.VaccViewModel.VaccViewData>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    table th {
+        background-color: #eee;
+        text-align: right;
+    }
+</style>
+<h2>قائمة الخدمات التحصين</h2>
+
+<p>
+    @Html.ActionLink("إضافة خدمة تحصين", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           إسم الحيوان
+        </th>
+        <th>
+           نوع المرض
+        </th>
+        <th>
+          نوع الجرعة
+        </th>
+        <th>
+           إسم المربي
+        </th>
+        <th>
+           رقم الحيازة
+        </th>
+        <th>
+           تاريخ التحصين
+        </th>
+        <th>
+       العدد
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiseaseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgriCert)
+            </td>
+            <td>
+                @item.VaccDate.ToString("dd/MM/yyyy")
+                @*@Html.DisplayFor(modelItem => item.VaccDate)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalNo)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

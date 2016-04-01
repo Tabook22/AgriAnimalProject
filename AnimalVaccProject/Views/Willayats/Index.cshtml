@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.tbl_Willayat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>قائمة الولايات</h2>
+
+<p>
+    @Html.ActionLink("إضافة ولاية جديدة", "Create")
+</p>
+<div class="lstborder">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WName)
+                </td>
+                <td>
+                    @Html.ActionLink("تعديل", "Edit", new { id = item.WID }) |
+                    @Html.ActionLink("التفاصيل", "Details", new { id = item.WID }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = item.WID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+   
+

@@ -1,0 +1,36 @@
+﻿@model AnimalVaccProject.Models.tbl_Disease
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>إضافة نوع مرض جديد</h2>
+<div>
+    @Html.ActionLink("عودة لقائمة الأمراض", "Index")
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiseaseType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiseaseType, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.DiseaseType, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="إضافة" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("عودة لقائمة الأمراض", "Index")
+</div>

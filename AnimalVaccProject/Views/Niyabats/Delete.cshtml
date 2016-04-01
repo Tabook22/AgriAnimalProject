@@ -1,0 +1,40 @@
+﻿@model AnimalVaccProject.Models.tbl_Niyabat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف النيابة</h2>
+
+<h3>؟ هل أنت متأكد من حذف النيابة</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           الولاية:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Willayst.WName)
+        </dd>
+
+        <dt>
+            النيابة:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-success"/> |
+            @Html.ActionLink("عودة للقائمة", "Index")
+        </div>
+    }
+</div>

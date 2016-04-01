@@ -1,0 +1,31 @@
+﻿@model AnimalVaccProject.Models.tbl_Willayat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف ولاية</h2>
+
+<h3>هل أنت متأكد من حذف الولاية?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <lable>إسم الولاية:</lable>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("عودة للقائمة", "Index")
+        </div>
+    }
+</div>

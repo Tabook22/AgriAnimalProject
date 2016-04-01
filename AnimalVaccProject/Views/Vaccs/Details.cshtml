@@ -1,0 +1,74 @@
+﻿@model AnimalVaccProject.Models.tbl_Vacc
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Vacc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.animal.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animal.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disease.DiseaseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disease.DiseaseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dose.DoseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dose.DoseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.farmer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.farmer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgriCert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgriCert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VaccDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaccDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

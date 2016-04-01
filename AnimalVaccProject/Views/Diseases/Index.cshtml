@@ -1,0 +1,50 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<AnimalVaccProject.Models.tbl_Disease>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>قائمة الأمراض</h2>
+<style>
+    #anilst {
+        width: 20rem;
+        border: 1px solid #DFF0D8;
+    }
+
+    table {
+        width: 10rem;
+    }
+
+        table tr th {
+            text-align: right;
+            background-color: #DFF0D8;
+        }
+</style>
+<p>
+    @Html.ActionLink("إضافة نوع مرض جديد", "Create")
+</p>
+<table id="anilst" class="table">
+    <tr>
+        <th>
+          نوع المرض
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiseaseType)
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.DisId }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.DisId })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new {page}))

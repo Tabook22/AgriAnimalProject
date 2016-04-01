@@ -1,0 +1,58 @@
+﻿@model AnimalVaccProject.Models.tbl_AgriCert
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_AgriCert</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.farmer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.farmer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgriCertNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgriCertNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AgriCertId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

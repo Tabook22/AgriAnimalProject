@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.tbl_AgriCert>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    table th{
+        background-color:#eee;
+        text-align:right;
+    }
+</style>
+<h2>قائمة الحيازات</h2>
+
+<p>
+    @Html.ActionLink("إضافة حيازة جديدة", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.farmer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgriCertNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Content/Images/Assets/001_55.png" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.farmer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgriCertNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @item.IssueDate.ToString("dd/MM/yyyy")
+            @*@Html.DisplayFor(modelItem => item.IssueDate)*@
+        </td>
+        <td>
+            @item.ExpDate.ToString("dd/MM/yyyy")
+            @*@Html.DisplayFor(modelItem => item.ExpDate)*@
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.AgriCertId }) |
+            @Html.ActionLink("حذف", "DeleteConfirmed", new { id=item.AgriCertId }, new { onclick = "return confirm('؟هل أنت متأكد من الحذف')" })
+        </td>
+    </tr>
+}
+
+</table>

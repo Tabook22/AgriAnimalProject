@@ -1,0 +1,27 @@
+﻿@model AnimalVaccProject.Models.tbl_Willayat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>التفاصيل</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.WName)
+        </dd>
+        <dt>
+            إسم الولاية:
+        </dt>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.WID }) |
+    @Html.ActionLink("عودة للقائمة", "Index")
+</p>

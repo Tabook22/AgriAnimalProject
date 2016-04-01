@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="ar-om" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Content/Images/Assets/logoAgr.png" />
+                @*@Html.ActionLink("برنامج أدارة فرق التحصين", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse navbar-left">
+                @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav">
+                    <li>
+                        
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top:50px;">
+        <div class="row">
+        <div class="col-md-9" style="border-right:1px solid #000000;">
+            @RenderBody()
+        </div>
+        <div class="col-md-3">
+            <aside class="sidemenu">
+                <h2>القائمة الرئيسية</h2>
+                <div class="list-group">
+                    <a href="@Url.Action("Index","Farmers")" class="list-group-item">قائمة المربين</a>
+                    <a href="@Url.Action("Index","AgriCerts")" class="list-group-item">قائمة الحيازات الزراعية</a>
+                    <a href="@Url.Action("Create","Vaccs")" class="list-group-item">خدمات التحصين</a>
+                    <a href="#" class="list-group-item">الإحصائيات و الجداول</a>
+                    <a href="@Url.Action("Index","Willayats")" class="list-group-item">قائمة الولايات</a>
+                    <a href="@Url.Action("Index","Niyabats")" class="list-group-item">قائمة النيابات</a>
+                    <a href="@Url.Action("Index","Villages")" class="list-group-item">قائمة القرى</a>
+                    <a href="@Url.Action("Index","Diseases")" class="list-group-item">قائمة الأمراض</a>
+                    <a href="@Url.Action("Index","Doses")" class="list-group-item">قائمة الجرعات</a>
+                    <a href="@Url.Action("Index","Animals")" class="list-group-item">قائمة الحيوانات</a>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

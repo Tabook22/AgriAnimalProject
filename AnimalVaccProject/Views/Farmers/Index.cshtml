@@ -1,0 +1,220 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<AnimalVaccProject.ViewModels.FarmerDataView>
+
+@{
+    ViewBag.Title = "قائمة المربين";
+}
+@*this hiddent file contains the url to display all the villages, which used after ajax calls*@
+@Html.Hidden("UrlGetAll", Url.Action("getFList", "Farmers"))
+<h2>قائمة المربين</h2>
+<div class="siteSearch">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                @using (Html.BeginForm("index", "Farmers", FormMethod.Get))
+                {
+                <div style="padding-bottom:10px;">
+                    <b>بحث بإستخدام:</b><br />
+                    @Html.RadioButton("searchBy", "Name", true)<text style="padding-right:10px;">إسم المستخدم</text><br />
+                    @Html.RadioButton("searchBy", "Id", true)<text style="padding-right:10px;">الرقم المدني</text>
+                    <br />
+                </div>
+                @*@Html.TextBox("search")*@
+                @*<input type="submit" value="Search"/>*@
+                <span>
+                    <button id="btnSearch3" class="btn btn-success" data-type="Farmer" data-controller-action="/Farmers/FindFarmer" type="submit">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+                @*@Html.TextBox("search")*@
+                @Html.TextBox("search",null, new{id = "search",@class = "search-query form-control"})
+                @*<input id="search" type="text" class="search-query form-control" style="text-align:right" placeholder="بحث" />*@
+                }
+            </div>
+        </div>
+        <div class="col-md-6" style="text-align:right;" dir="rtl">
+
+            <a href="javascript:void(0)" class="btn btn-success lnkAddNew" data-type="farmer" data-controller-action="/Farmers/AddNewFarmer">إضافة إسم مربي</a>
+            <div style="text-align:right;padding-top:10px;">
+                <span>إجمالي عدد المربين:</span><span style="font-weight:bold;padding-right:5px;">@ViewBag.TotalFarmers</span> <br />
+                <div style="padding-top:10px; padding-bottom:10px;" dir="ltr">
+                    <a href="@Url.Action("Index","Farmers")">إظهار الكل</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+    <div id="divAddFarmers" style="display: none;" title="إضافة إسم المربي">
+        <table>
+            <tr>
+                <td>إسم المربي</td>
+                <td><input type="text" class="AddName form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>الرقم المدني</td>
+                <td><input type="text" class="AddcivilId form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>إسم الولاية</td>
+                <td>
+                    @Html.DropDownList("AddWillayts", new SelectList(ViewBag.FrWlst, "WID", "WName"))
+
+                </td>
+            </tr>
+            <tr>
+                <td>إسم النيابة</td>
+                <td>
+                    @Html.DropDownList("AddNiyabats", new SelectList(ViewBag.FrNlst, "NID", "NName"))
+                </td>
+            </tr>
+
+            <tr>
+                <td>إسم القرية</td>
+                <td>
+                    @Html.DropDownList("AddVillages", new SelectList(ViewBag.FrVlst, "VID", "VName"))
+                </td>
+            </tr>
+            <tr>
+                <td>رقم الهاتف</td>
+                <td><input type="text" class="AddTel form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>الوظيفة</td>
+                <td><input type="text" class="AddJob form-control" /><span class="VNameError"></span></td>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <div id="divEditFarmers" title="تعديل إسم المربي" style="display:none">
+        <input type="hidden" id="hidVID" />
+        <input type="hidden" id="hidWID" />
+        <table>
+            <tr>
+                <td>إسم المربي</td>
+                <td><input type="text" id="txtName" class="form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>الرقم المدني</td>
+                <td><input type="text" id="civilId" class=" form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>إسم الولاية</td>
+                <td>
+                    @Html.DropDownList("ddlEditWillayts", new SelectList(ViewBag.FrWlst, "WID", "WName"))
+
+                </td>
+            </tr>
+            <tr>
+                <td>إسم النيابة</td>
+                <td>
+                    @Html.DropDownList("ddlEditNiyabats", new SelectList(ViewBag.FrNlst, "NID", "NName"))
+                </td>
+            </tr>
+
+            <tr>
+                <td>إسم القرية</td>
+                <td>
+                    @Html.DropDownList("ddlEditVillages", new SelectList(ViewBag.FrVlst, "VID", "VName"))
+                </td>
+            </tr>
+            <tr>
+                <td>رقم الهاتف</td>
+                <td><input type="text" class="Tel form-control" /><span class="VNameError"></span></td>
+            </tr>
+            <tr>
+                <td>الوظيفة</td>
+                <td><input type="text" class="Job form-control" /><span class="VNameError"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="status">
+        <span id="statusMsg">
+            @ViewBag.Message
+        </span>
+    </div>
+
+
+    @*The list of users will be displayed inside the Div #divUserListContainer *@
+    @*<div id="FarmerListContainer">
+            @{Html.RenderAction("getFList", "Farmers");}
+        </div>*@
+    <div>
+        <table id="wlist" class="table nlsts">
+            <tr class="hdr">
+                <th style="display:none;">
+                    م
+                </th>
+                <th></th>
+                <th>
+                    إسم المربي
+                </th>
+                <th>الرقم المدني</th>
+                <th>
+                    إسم الولاية
+                </th>
+                <th>
+                    إسم النيابة
+                </th>
+                <th>
+                    إسم القرية
+                </th>
+                <th>الهاتف</th>
+                <th>الوظيفة</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="display:none;">
+                        @Html.DisplayFor(modelItem => item.FarmerId)
+                    </td>
+                    <td>
+                        <img src="~/Content/Images/Assets/001_55.png" />
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.civilId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WName)
+                    </td>
+                    <td style="display:none;">@Html.DisplayFor(modelItem => item.WID)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NName)
+                    </td>
+                    <td style="display:none;">@Html.DisplayFor(modelItem => item.NID)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VName)
+                    </td>
+                    <td style="display:none;">@Html.DisplayFor(modelItem => item.VID)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job)
+                    </td>
+                    <td class="rf">
+                        <a href="#" class="lnkEdit" data-controller-action="/Farmers/UpdateFarmer">تعديل</a>| @*the reason for using javascript:void(0) in the href is to prevent the browser from loading a new page, void is an operator that is used to return a null value so the browser will not be able to load a new page, and it requires a value to operate so we use void(0) *@
+                        <a href="#" class="lnkDelete" data-controller-action="/Farmers/DeleteFarmer">حذف</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }))
+    </div>
+    @section scripts{
+        <script src="~/Scripts/manageFarmers.js"></script>
+    }
+
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.tbl_Niyabat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>قائمة النيابات</h2>
+
+<p>
+    @Html.ActionLink("إضافة نيابة ", "Create")
+</p>
+<div class="lstborder">
+    <table class="table">
+        <tr>
+            <th>
+                الولاية:
+            </th>
+            <th>
+                النيابة
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Willayst.WName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NName)
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.NID }) |
+            @Html.ActionLink("تفاصيل", "Details", new { id=item.NID }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.NID })
+        </td>
+    </tr>
+}
+
+    </table>
+</div>
