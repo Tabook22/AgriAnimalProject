@@ -12,5 +12,7 @@ namespace AnimalVaccProject.Models
         public int DisId { get; set; }
         [Display(Name = "نوع المرض")]
         public string DiseaseType { get; set; }
+        [Display(Name = "المجموعة")]
+        public int catId { get; set; }
     }
 }

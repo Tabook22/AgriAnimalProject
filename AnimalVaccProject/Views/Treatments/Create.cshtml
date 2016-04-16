@@ -1,113 +1,106 @@
-﻿@model AnimalVaccProject.Models.tbl_Vacc
+﻿@model AnimalVaccProject.Models.tbl_Treatment
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 
-<h2>تعديل الخدمات التحصينية</h2>
-<div>
-    @Html.ActionLink("عودة لقائمة التحصينات", "Index")
-</div>
-@using (Html.BeginForm())
+<h2>بيانات العلاج</h2>
+
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
         <div class="form-group">
-
+         
             <div class="col-md-10">
                 @Html.DropDownList("FarmerId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FarmerId, "", new { @class = "text-danger" })
-              
             </div>
             <label class="control-label col-md-2">إسم المربي</label>
         </div>
+
         <div class="form-group">
+          
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AgriCert, new { htmlAttributes = new { @class = "form-control", style = "width:100px;" } })
+                @Html.EditorFor(model => model.AgriCert, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AgriCert, "", new { @class = "text-danger" })
                 <span class="agrcerttatus" style="color:red;font-weight:bold;"></span>
             </div>
-            @Html.LabelFor(model => model.AgriCert, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">رقم الحيازة</label>
         </div>
 
         <div class="form-group">
+           
             <div class="col-md-10">
-                @Html.EditorFor(model => model.VaccDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.VaccDate, "", new { @class = "text-danger" })
-              
+                @Html.EditorFor(model => model.TreDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TreDate, "", new { @class = "text-danger" })
             </div>
-            @Html.LabelFor(model => model.VaccDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">تاريخ العلاج</label>
         </div>
 
         <div class="form-group">
+         
             <div class="col-md-10">
-                @Html.DropDownList("AId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AId, "", new { @class = "text-danger" })
+                @Html.DropDownList("AnimalType", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AnimalType, "", new { @class = "text-danger" })
             </div>
             <label class="control-label col-md-2">نوع الحيوان</label>
         </div>
 
         <div class="form-group">
+           
             <div class="col-md-10">
-                @Html.DropDownList("DoseId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DoseId, "", new { @class = "text-danger" })
-            </div>
-            <label class="control-label col-md-2">نوع الجرعة</label>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.DropDownList("DisId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DisId, "", new { @class = "text-danger" })
+                @Html.DropDownList("DiseaseType", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DiseaseType, "", new { @class = "text-danger" })
             </div>
             <label class="control-label col-md-2">نوع المرض</label>
         </div>
 
         <div class="form-group">
+         
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TreType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TreType, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2">نوع العلاج</label>
+        </div>
+
+        <div class="form-group">
+         
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.TotalNo, new { @class = "form-control", style = "width:50px;" })
                 @Html.ValidationMessageFor(model => model.TotalNo, "", new { @class = "text-danger" })
             </div>
-            @Html.LabelFor(model => model.TotalNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">عدد الحيوانات المعالجة</label>
         </div>
+
         <div class="form-group">
+          
             <div class="col-md-10">
-                @Html.DropDownList("vaccTool", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AId, "", new { @class = "text-danger" })
+                @Html.DropDownList("SampleType", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SampleType, "", new { @class = "text-danger" })
             </div>
-            <label class="control-label col-md-2">آلية التحصين المستخدمة</label>
+            <label class="control-label col-md-2">نوع العينة</label>
         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="حفظ" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
+<hr/>
+<div style="clear:both;">
+    @Html.ActionLink("عودة للقائمة", "Index")
+</div>
 
 @section scripts{
     <script>
-        $(function () {
-           
-            var getCert = $("#AgriCert").val();
-            console.log(getCert);
-            if(getCert==null)
-            {
-                $(".agrcerttatus").html("لا توجد حيازة مسجلة بإسم الحائز");
-            }
-            else
-            {
-                $(".agrcerttatus").html(""); //clear
-            }
-        });
-    </script>
-    <script>
-        $("#VaccDate").datepicker();
+        $("#TreDate").datepicker();
     </script>
 
     <!--Check for Agri Certificate-->
@@ -115,7 +108,6 @@
         //when Framer dropdownlist changes----------------------------------------------------------------------------------------------------------
         $(document).on('change', "#FarmerId", function () {
             var FID = $(this).val();
-            $(".agrcerttatus").html(""); //clear
             $("#AgriCert").val(""); //clear agri certificate
             url = "/AgriCerts/getAgriCerti" + "?FID=" + FID;
             $.ajax({
@@ -145,4 +137,4 @@
 
     </script>
 
-}
+    }

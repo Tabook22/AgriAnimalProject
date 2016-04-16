@@ -1,0 +1,88 @@
+﻿@model AnimalVaccProject.Models.tbl_Treatment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbl_Treatment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FarmerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FarmerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgriCert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgriCert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TreDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TreDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnimalType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnimalType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiseaseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiseaseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TreType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TreType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SampleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SampleType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

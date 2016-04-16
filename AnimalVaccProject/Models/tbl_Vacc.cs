@@ -10,7 +10,7 @@ namespace AnimalVaccProject.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "الرجاءكتابة رقم الحيازة")]
+        //[Required(ErrorMessage = "الرجاءكتابة رقم الحيازة")]
         [Display(Name = "رقم الحيازة")]
         public string AgriCert { get; set; }
         [Required(ErrorMessage = "الرجاء إختيار التاريخ")]
@@ -37,9 +37,12 @@ namespace AnimalVaccProject.Models
         [Display(Name = "إسم المربي")]
         public int FarmerId { get; set; }
 
+        public int vaccTool { get; set; }
+
         public virtual tbl_Farmer farmer { get; set; }
         public virtual tbl_Animal animal { get; set; }
         public virtual tbl_Dose dose { get; set; }
         public virtual tbl_Disease disease { get; set; }
+        public virtual vacTool vactool { get; set; }
     }
 }

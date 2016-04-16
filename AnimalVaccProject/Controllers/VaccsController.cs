@@ -55,8 +55,9 @@ namespace AnimalVaccProject.Controllers
         // GET: Vaccs/Create
         public ActionResult Create()
         {
+            ViewBag.vaccTool = new SelectList(db.vactools, "Id", "Name");
             ViewBag.AId = new SelectList(db.animals, "AId", "Name");
-            ViewBag.DisId = new SelectList(db.diseases, "DisId", "DiseaseType");
+            ViewBag.DisId = new SelectList(db.diseases.Where(x => x.catId == 1), "DisId", "DiseaseType");
             ViewBag.DoseId = new SelectList(db.doses, "DoseId", "DoseType");
             ViewBag.FarmerId = new SelectList(db.farmers, "FarmerId", "Name");
             return View();
@@ -67,7 +68,7 @@ namespace AnimalVaccProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId")] tbl_Vacc tbl_Vacc)
+        public ActionResult Create([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId,vaccTool")] tbl_Vacc tbl_Vacc)
         {
             if (ModelState.IsValid)
             {
@@ -75,9 +76,9 @@ namespace AnimalVaccProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.vaccTool = new SelectList(db.vactools, "Id", "Name", tbl_Vacc.vaccTool);
             ViewBag.AId = new SelectList(db.animals, "AId", "Name", tbl_Vacc.AId);
-            ViewBag.DisId = new SelectList(db.diseases, "DisId", "DiseaseType", tbl_Vacc.DisId);
+            ViewBag.DisId = new SelectList(db.diseases.Where(x => x.catId==1), "DisId", "DiseaseType", tbl_Vacc.DisId);
             ViewBag.DoseId = new SelectList(db.doses, "DoseId", "DoseType", tbl_Vacc.DoseId);
             ViewBag.FarmerId = new SelectList(db.farmers, "FarmerId", "Name", tbl_Vacc.FarmerId);
             return View(tbl_Vacc);
@@ -95,8 +96,9 @@ namespace AnimalVaccProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.vaccTool = new SelectList(db.vactools, "Id", "Name", tbl_Vacc.vaccTool);
             ViewBag.AId = new SelectList(db.animals, "AId", "Name", tbl_Vacc.AId);
-            ViewBag.DisId = new SelectList(db.diseases, "DisId", "DiseaseType", tbl_Vacc.DisId);
+            ViewBag.DisId = new SelectList(db.diseases.Where(x => x.catId==1), "DisId", "DiseaseType", tbl_Vacc.DisId);
             ViewBag.DoseId = new SelectList(db.doses, "DoseId", "DoseType", tbl_Vacc.DoseId);
             ViewBag.FarmerId = new SelectList(db.farmers, "FarmerId", "Name", tbl_Vacc.FarmerId);
             return View(tbl_Vacc);
@@ -107,7 +109,7 @@ namespace AnimalVaccProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId")] tbl_Vacc tbl_Vacc)
+        public ActionResult Edit([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId,vaccTool")] tbl_Vacc tbl_Vacc)
         {
             if (ModelState.IsValid)
             {
@@ -115,8 +117,9 @@ namespace AnimalVaccProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.vaccTool = new SelectList(db.vactools, "Id", "Name", tbl_Vacc.vaccTool);
             ViewBag.AId = new SelectList(db.animals, "AId", "Name", tbl_Vacc.AId);
-            ViewBag.DisId = new SelectList(db.diseases, "DisId", "DiseaseType", tbl_Vacc.DisId);
+            ViewBag.DisId = new SelectList(db.diseases.Where(x => x.catId == 1), "DisId", "DiseaseType", tbl_Vacc.DisId);
             ViewBag.DoseId = new SelectList(db.doses, "DoseId", "DoseType", tbl_Vacc.DoseId);
             ViewBag.FarmerId = new SelectList(db.farmers, "FarmerId", "Name", tbl_Vacc.FarmerId);
             return View(tbl_Vacc);

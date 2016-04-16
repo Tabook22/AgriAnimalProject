@@ -7,117 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AnimalVaccProject.Models;
-using PagedList;
 
 namespace AnimalVaccProject.Controllers
 {
-    public class DiseasesController : Controller
+    public class SamplesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Diseases
-        public ActionResult Index(int? page)
+        // GET: Samples
+        public ActionResult Index()
         {
-           
-            return View(db.diseases.ToList().ToPagedList(page ?? 1, 10));
+            return View(db.sampletypes.ToList());
         }
 
-        // GET: Diseases/Details/5
+        // GET: Samples/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_Disease tbl_Disease = db.diseases.Find(id);
-            if (tbl_Disease == null)
+            SampleType sampleType = db.sampletypes.Find(id);
+            if (sampleType == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_Disease);
+            return View(sampleType);
         }
 
-        // GET: Diseases/Create
+        // GET: Samples/Create
         public ActionResult Create()
         {
-       
-            ViewBag.catId = new SelectList(db.treatmentypes, "Id", "Name");
             return View();
         }
 
-        // POST: Diseases/Create
+        // POST: Samples/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DisId,DiseaseType")] tbl_Disease tbl_Disease)
+        public ActionResult Create([Bind(Include = "Id,Name")] SampleType sampleType)
         {
             if (ModelState.IsValid)
             {
-                db.diseases.Add(tbl_Disease);
+                db.sampletypes.Add(sampleType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tbl_Disease);
+            return View(sampleType);
         }
 
-        // GET: Diseases/Edit/5
+        // GET: Samples/Edit/5
         public ActionResult Edit(int? id)
         {
-
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_Disease tbl_Disease = db.diseases.Find(id);
-            ViewBag.catId = new SelectList(db.treatmentypes, "Id", "Name", tbl_Disease.catId);
-            if (tbl_Disease == null)
+            SampleType sampleType = db.sampletypes.Find(id);
+            if (sampleType == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_Disease);
+            return View(sampleType);
         }
 
-        // POST: Diseases/Edit/5
+        // POST: Samples/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DisId,DiseaseType")] tbl_Disease tbl_Disease)
+        public ActionResult Edit([Bind(Include = "Id,Name")] SampleType sampleType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tbl_Disease).State = EntityState.Modified;
+                db.Entry(sampleType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tbl_Disease);
+            return View(sampleType);
         }
 
-        // GET: Diseases/Delete/5
+        // GET: Samples/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_Disease tbl_Disease = db.diseases.Find(id);
-            if (tbl_Disease == null)
+            SampleType sampleType = db.sampletypes.Find(id);
+            if (sampleType == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_Disease);
+            return View(sampleType);
         }
 
-        // POST: Diseases/Delete/5
+        // POST: Samples/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tbl_Disease tbl_Disease = db.diseases.Find(id);
-            db.diseases.Remove(tbl_Disease);
+            SampleType sampleType = db.sampletypes.Find(id);
+            db.sampletypes.Remove(sampleType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

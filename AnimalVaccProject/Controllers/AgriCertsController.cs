@@ -143,6 +143,24 @@ namespace AnimalVaccProject.Controllers
             return RedirectToAction("Index");
         }
 
+
+        //get agri certificate based up on a specific farmer id
+        [HttpPost]
+        public JsonResult getAgriCerti(int FID)
+        {
+            int GetID;
+           bool getC = db.agricerts.Where(x => x.FarmerId == FID).Any();
+
+           if(getC==true)
+            {
+                GetID = db.agricerts.Where(x => x.FarmerId == FID).First().AgriCertId;
+            }
+           else
+            {
+                GetID = 0;
+            }
+            return Json(new { GetID }, JsonRequestBehavior.AllowGet);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -17,5 +17,6 @@ namespace AnimalVaccProject.Models
         public string DiseaseType { get; set; }
         public string TreType { get; set; }
         public int TotalNo { get; set; }
+        public int SampleType { get; set; }
     }
 }

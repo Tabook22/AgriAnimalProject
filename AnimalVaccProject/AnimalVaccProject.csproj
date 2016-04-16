@@ -184,6 +184,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NiyabatsController.cs" />
+    <Compile Include="Controllers\SamplesController.cs" />
+    <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Controllers\VaccsController.cs" />
     <Compile Include="Controllers\VillagesController.cs" />
     <Compile Include="Controllers\WillayatsController.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NiyabatManger.cs" />
+    <Compile Include="Models\SampleType.cs" />
     <Compile Include="Models\tbl_Accident.cs" />
     <Compile Include="Models\tbl_AgriCert.cs" />
     <Compile Include="Models\tbl_Animal.cs" />
@@ -212,12 +215,15 @@
     <Compile Include="Models\tbl_Vacc.cs" />
     <Compile Include="Models\tbl_Village.cs" />
     <Compile Include="Models\tbl_Willayat.cs" />
+    <Compile Include="Models\treatmentType.cs" />
+    <Compile Include="Models\vacTool.cs" />
     <Compile Include="Models\villageManager.cs" />
     <Compile Include="Models\WillayatManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FarmerViewModel.cs" />
     <Compile Include="ViewModels\NiyabatViewModel.cs" />
+    <Compile Include="ViewModels\TreatViewData.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
     <Compile Include="ViewModels\VaccViewModel.cs" />
     <Compile Include="ViewModels\VillageViewModel.cs" />
@@ -537,6 +543,16 @@
     <Content Include="Views\Diseases\Details.cshtml" />
     <Content Include="Views\Diseases\Edit.cshtml" />
     <Content Include="Views\Diseases\Index.cshtml" />
+    <Content Include="Views\Samples\Create.cshtml" />
+    <Content Include="Views\Samples\Delete.cshtml" />
+    <Content Include="Views\Samples\Details.cshtml" />
+    <Content Include="Views\Samples\Edit.cshtml" />
+    <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Treatments\Create.cshtml" />
+    <Content Include="Views\Treatments\Delete.cshtml" />
+    <Content Include="Views\Treatments\Details.cshtml" />
+    <Content Include="Views\Treatments\Edit.cshtml" />
+    <Content Include="Views\Treatments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

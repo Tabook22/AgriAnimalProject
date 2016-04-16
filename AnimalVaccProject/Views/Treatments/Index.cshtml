@@ -1,0 +1,59 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<AnimalVaccProject.ViewModels.TreatViewData>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<style>
+    table th {
+        background-color: #eee;
+        text-align: right;
+    }
+</style>
+<h2>قائمة الخدمات التحصين</h2>
+
+<p>
+    @Html.ActionLink("إضافة خدمة علاجية", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            إسم المربي
+        </th>
+        <th>
+            رقم الحيازة
+        </th>
+        <th>
+            تاريخ العلاج
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgriCert)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TreDate)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

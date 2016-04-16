@@ -41,5 +41,8 @@ namespace AnimalVaccProject.Models
         public DbSet<tbl_Animal> animals { get; set; }
         public DbSet<tbl_Dose> doses { get; set; }
         public DbSet<tbl_Disease> diseases { get; set; }
+        public DbSet <treatmentType> treatmentypes { get; set; }
+        public DbSet<vacTool> vactools { get; set; }
+        public DbSet<SampleType> sampletypes { get; set; }
     }
 }
