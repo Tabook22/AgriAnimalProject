@@ -39,6 +39,7 @@ namespace AnimalVaccProject.Models
 
         public virtual ICollection<tbl_Vacc> vaccs { get; set; }
         public virtual ICollection<tbl_AgriCert> agricerts { get; set; }
+        public virtual ICollection<tbl_Sample> sampletests { get; set; }
         public virtual tbl_Willayat willayat { get; set; }
     }
 }

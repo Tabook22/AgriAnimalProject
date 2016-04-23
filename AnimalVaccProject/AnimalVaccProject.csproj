@@ -185,6 +185,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NiyabatsController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
+    <Compile Include="Controllers\SampleTestController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Controllers\VaccsController.cs" />
     <Compile Include="Controllers\VillagesController.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="Models\WillayatManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AdminMenuItem.cs" />
     <Compile Include="ViewModels\FarmerViewModel.cs" />
     <Compile Include="ViewModels\NiyabatViewModel.cs" />
     <Compile Include="ViewModels\TreatViewData.cs" />
@@ -553,9 +556,16 @@
     <Content Include="Views\Treatments\Details.cshtml" />
     <Content Include="Views\Treatments\Edit.cshtml" />
     <Content Include="Views\Treatments\Index.cshtml" />
+    <Content Include="Views\SampleTest\Create.cshtml" />
+    <Content Include="Views\SampleTest\Delete.cshtml" />
+    <Content Include="Views\SampleTest\Details.cshtml" />
+    <Content Include="Views\SampleTest\Edit.cshtml" />
+    <Content Include="Views\SampleTest\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -148,8 +148,6 @@ C:\Users\alita\Desktop\myGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsof
 C:\Users\alita\Desktop\myGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\alita\Desktop\myGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\alita\Desktop\myGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\EntityFramework.xml
-C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\roslyn\csc.exe
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -206,7 +204,9 @@ C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\System.
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\System.Web.WebPages.Razor.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Antlr3.Runtime.pdb
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Newtonsoft.Json.xml
+C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\EntityFramework.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\EntityFramework.SqlServer.xml
+C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.xml
@@ -222,3 +222,4 @@ C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\A
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csproj.GenerateResource.Cache
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.dll
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.pdb
+C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csprojResolveAssemblyReference.cache

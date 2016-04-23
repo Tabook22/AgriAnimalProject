@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.tbl_Sample>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FarmerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgriCert)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Results)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FarmerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgriCert)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Results)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

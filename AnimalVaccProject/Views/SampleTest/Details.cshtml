@@ -1,0 +1,74 @@
+﻿@model AnimalVaccProject.Models.tbl_Sample
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FarmerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FarmerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgriCert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgriCert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SampleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SampleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SampleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SampleType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SampleNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SampleNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Results)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Results)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

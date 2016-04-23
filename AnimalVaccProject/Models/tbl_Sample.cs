@@ -13,9 +13,11 @@ namespace AnimalVaccProject.Models
         public int FarmerId { get; set; }
         public string AgriCert { get; set; }
         public DateTime SampleDate { get; set; }
-        public string AnimalType { get; set; }
-        public string SampleType { get; set; }
+        public string TestDetails { get; set; }
+        public int SampleType { get; set; }
         public int SampleNo { get; set; }
-        public string Results { get; set; }
+        public int Results { get; set; }
+
+        public virtual tbl_Farmer  framer { get; set; }
     }
 }
