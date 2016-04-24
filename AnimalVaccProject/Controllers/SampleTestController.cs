@@ -51,8 +51,23 @@ namespace AnimalVaccProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FarmerId,AgriCert,SampleDate,TestDetails,SampleType,SampleNo,Results")] tbl_Sample tbl_Sample)
         {
+            // here is one approach
+            Random rand = new Random((int)DateTime.Now.Ticks);
+            int RandomNumber;
+            RandomNumber = rand.Next(100000, 999999);
+
+
+            int CharCode = rand.Next(Convert.ToInt32('a'), Convert.ToInt32('z'));
+            char RandomChar = Convert.ToChar(CharCode);
+
+            var getRandom = Convert.ToString(CharCode);
+
+            var getCYear = DateTime.Now.Year.ToString();//get current year
+                getCYear = getCYear.Substring(2);
+            var getCMonth = DateTime.Now.Month.ToString();
             if (ModelState.IsValid)
             {
+                tbl_Sample.SampleNo = Convert.ToString(tbl_Sample.FarmerId) +"-"+ getCYear+"-"+ getCMonth+getRandom +"-"+ RandomChar;
                 db.samples.Add(tbl_Sample);
                 db.SaveChanges();
                 return RedirectToAction("Index");
