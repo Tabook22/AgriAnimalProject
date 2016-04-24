@@ -119,15 +119,25 @@ namespace AnimalVaccProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FarmerId,AgriCert,SampleDate,TestDetails,SampleType,SampleNo,Results")] tbl_Sample tbl_Sample)
+        public ActionResult Edit(tbl_Sample tbl_Sample)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(tbl_Sample).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(tbl_Sample);
+            tbl_Sample tSample = new tbl_Sample();
+            tSample = db.samples.Where(x => x.Id == tbl_Sample.Id).FirstOrDefault();
+            tSample.FarmerId = tbl_Sample.FarmerId;
+            tSample.AgriCert = tbl_Sample.AgriCert;
+            tSample.SampleDate = tbl_Sample.SampleDate;
+            tSample.TestDetails = tbl_Sample.TestDetails;
+            tSample.SampleNo = tbl_Sample.SampleNo;
+            tSample.Results = tbl_Sample.Results;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(tbl_Sample).State = EntityState.Modified;
+            // db.SaveChanges();
+            // return RedirectToAction("Index");
+            // }
+            //  return View(tbl_Sample);
         }
 
         // GET: SampleTest/Delete/5
