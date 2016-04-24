@@ -226,6 +226,7 @@
     <Compile Include="ViewModels\AdminMenuItem.cs" />
     <Compile Include="ViewModels\FarmerViewModel.cs" />
     <Compile Include="ViewModels\NiyabatViewModel.cs" />
+    <Compile Include="ViewModels\SampleViewData.cs" />
     <Compile Include="ViewModels\TreatViewData.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
     <Compile Include="ViewModels\VaccViewModel.cs" />

@@ -15,8 +15,26 @@ namespace AnimalVaccProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: SampleTest
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search, int? page)
         {
+            var agrVlts = from s in db.samples
+                          join 
+                          orderby f.Name
+                          select new FarmerDataView
+                          {
+                              FarmerId = f.FarmerId,
+                              Name = f.Name,
+                              civilId = f.civilId,
+                              WID = n.WID,
+                              WName = w.WName,
+                              NID = n.NID,
+                              NName = n.NName,
+                              VID = v.VID,
+                              VName = v.VName,
+                              Tel = f.Tel,
+                              Job = f.Job
+                          };
+
             return View(db.samples.ToList());
         }
 
