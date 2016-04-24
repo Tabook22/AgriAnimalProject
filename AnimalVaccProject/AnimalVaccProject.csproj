@@ -251,6 +251,7 @@
     <Content Include="Content\Images\Assets\edit.png" />
     <Content Include="Content\Images\Assets\edti_Art.png" />
     <Content Include="Content\Images\Assets\Guest.png" />
+    <Content Include="Content\Images\Assets\list.png" />
     <Content Include="Content\Images\Assets\logoAgr.png" />
     <Content Include="Content\Images\Assets\minus.png" />
     <Content Include="Content\Images\Assets\no.png" />

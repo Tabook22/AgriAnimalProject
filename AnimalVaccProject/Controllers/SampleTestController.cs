@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AnimalVaccProject.Models;
+using AnimalVaccProject.ViewModels;
 
 namespace AnimalVaccProject.Controllers
 {
@@ -17,25 +18,25 @@ namespace AnimalVaccProject.Controllers
         // GET: SampleTest
         public ActionResult Index(string searchBy, string search, int? page)
         {
-            var agrVlts = from s in db.samples
-                          join 
-                          orderby f.Name
-                          select new FarmerDataView
+            var SampleTest = from s in db.samples
+                          join f in db.farmers on s.FarmerId equals f.FarmerId
+                          join st in db.sampletypes on s.SampleType equals st.Id
+                          orderby s.SampleDate
+                          select new SampleViewData
                           {
-                              FarmerId = f.FarmerId,
-                              Name = f.Name,
-                              civilId = f.civilId,
-                              WID = n.WID,
-                              WName = w.WName,
-                              NID = n.NID,
-                              NName = n.NName,
-                              VID = v.VID,
-                              VName = v.VName,
-                              Tel = f.Tel,
-                              Job = f.Job
+                              Id = s.Id,
+                              SampleDate = s.SampleDate,
+                              TestDetails = s.TestDetails,
+                              SampleTypeId = st.Id,
+                              SampleTypeName = st.Name,
+                              SampleNo = s.SampleNo,
+                              Results = s.Results,
+                              FarmerId = s.FarmerId,
+                              FarmerName = f.Name,
+                              civilId = f.civilId
                           };
 
-            return View(db.samples.ToList());
+            return View(SampleTest.ToList());
         }
 
         // GET: SampleTest/Details/5
@@ -81,11 +82,11 @@ namespace AnimalVaccProject.Controllers
             var getRandom = Convert.ToString(CharCode);
 
             var getCYear = DateTime.Now.Year.ToString();//get current year
-                getCYear = getCYear.Substring(2);
+            getCYear = getCYear.Substring(2);
             var getCMonth = DateTime.Now.Month.ToString();
             if (ModelState.IsValid)
             {
-                tbl_Sample.SampleNo = Convert.ToString(tbl_Sample.FarmerId) +"-"+ getCYear+"-"+ getCMonth+getRandom +"-"+ RandomChar;
+                tbl_Sample.SampleNo = Convert.ToString(tbl_Sample.FarmerId) + "-" + getCYear + "-" + getCMonth + getRandom + "-" + RandomChar;
                 db.samples.Add(tbl_Sample);
                 db.SaveChanges();
                 return RedirectToAction("Index");

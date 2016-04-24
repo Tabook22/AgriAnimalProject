@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AnimalVaccProject.Models.tbl_Sample>
+﻿@model IEnumerable<AnimalVaccProject.ViewModels.SampleViewData>
 
 @{
     ViewBag.Title = "Index";
@@ -21,82 +21,60 @@
     columns: grid.Columns(
                         grid.Column(header: "NO.", format: @<text><div>@(item.WebGrid.Rows.IndexOf(item) + 1)</div></text>),
                         //grid.Column(header: "??? ???????", format: (item) => Html.Raw("<span class='getId'>" + item.ItemId+ "</span>")),
-                        grid.Column(header: "تاريخ العينة", format: (item) => Html.Raw("<span>" + item.SampleDate + "</span>")),
+                        grid.Column(header: "تاريخ العينة", format: (item) => string.Format("{0:dd/MM/yyyy}", item.SampleDate)),
                         grid.Column(header: "رقم العينة", format: (item) => Html.Raw("<span>" + item.SampleNo + "</span>")),
-                        grid.Column(header: "إسم المربي", format: (item) => Html.Raw("<span>" + item.MId + "</span>")),
-                        grid.Column(header: "حالة العينة", format: (item) => Html.Raw("<span>" + item.SId + "</span>")),
-                        grid.Column(header: "Price", format: (item) => Html.Raw("<span>" + item.Price + "</span>")),
+                        grid.Column(header: "إسم المربي", format: (item) => Html.Raw("<span>" + item.FarmerName + "</span>")),
+                        grid.Column(header: "حالة العينة", format: (item) => Html.Raw("<span>" + item.Results + "</span>")),
                         grid.Column("", style: "button", format: @<text>
-                            <a href='@Url.Action("Edit","Items",new{id=item.ItemId})'>
-                                <img src="~/Content/Images/edit.png" style="width:2rem;" />
+                            <a href='@Url.Action("Edit","SampleTest",new{id=item.Id})'>
+                                <img src="~/Content/Images/Assets/edit.png" style="width:2rem;" />
                             </a>|
-                            <a href='@Url.Action("Details","Items",new{id=item.ItemId})'>
-                                <img src="~/Content/Images/list.png" style="width:2rem;" />
-                            </a>|
-                            <a href='@Url.Action("DeleteConfirmed","Items",new{id=item.ItemId})' , onclick="return confirm('Are you sure you wish to delete this article?');">
-                                <img src="~/Content/Images/delete.png" style="width:2rem;" />
+                            @*<a href='@Url.Action("Details","SampleTest",new{id=item.Id})'>
+                                <img src="~/Content/Images/Assets/list.png" style="width:2rem;" />
+                            </a>|*@
+                            <a href='@Url.Action("DeleteConfirmed","SampleTest",new{id=item.Id})' , onclick="return confirm('Are you sure you wish to delete this article?');">
+                                <img src="~/Content/Images/Assets/delete.png" style="width:2rem;" />
                             </a>
                         </text>)
                            )
                      )
 </div>
+@section scripts{
+    
+   <script type="text/javascript">
+        $(function () {
 
+            $('tr').each(function (index) { //iterate over all table rows
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FarmerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AgriCert)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SampleDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TestDetails)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SampleType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SampleNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Results)
-        </th>
-        <th></th>
-    </tr>
+                if (index > 0) {     //skip header
+                    if ($(this).children('td:nth-child(5)').text() == 0)  //the sample not yet analysised.
+                    {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FarmerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgriCert)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SampleDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TestDetails)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SampleType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SampleNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Results)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+                        $(this).children('td:nth-child(5)').css("color", "black");
+                        $(this).children('td:nth-child(5)').css("background-color", "yellow");
+                        $(this).children('td:nth-child(5)').text("لا توجد نتيجة");
 
-</table>
+                    }
+                    else if ($(this).children('td:nth-child(5)').text() == 1) {
+
+                        $(this).children('td:nth-child(5)').css("color", "white");
+                        $(this).children('td:nth-child(5)').css("background-color", "red");
+                        $(this).children('td:nth-child(5)').text("النتيجة سلبية");
+                    }else if ($(this).children('td:nth-child(5)').text() == 2) {
+
+                        $(this).children('td:nth-child(5)').css("color", "white");
+                        $(this).children('td:nth-child(5)').css("background-color", "green");
+                        $(this).children('td:nth-child(5)').text("النتيجة إيجابية");
+
+                    }
+                    //else
+                    //{
+                    //    $(this).children('td:nth-child(3)').css("background-color", "red");
+                    //}
+                }
+            });
+        });
+
+</script> 
+    
+    }
