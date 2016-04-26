@@ -24,12 +24,22 @@
             </div>
             <label class="control-label col-md-2">نوع المرض</label>
             </div>
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })
-                </div>
-              <label class="control-label col-md-2">نوع العلاج</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownList("dtype", null, "الرجاء إختر المجموعة ...", htmlAttributes: new { @class = "form-control" })
             </div>
+            @Html.LabelFor(model => model.dtype, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownList("catId", null, "الرجاء إختر الخدمة ...", htmlAttributes: new { @class = "form-control" })
+
+                @*@Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiseaseType, "", new { @class = "text-danger" })*@
+            </div>
+            @Html.LabelFor(model => model.catId, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="حفظ" class="btn btn-default" />

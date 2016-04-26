@@ -1,6 +1,6 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
-@model IPagedList<AnimalVaccProject.Models.tbl_Disease>
+@model IPagedList<AnimalVaccProject.ViewModels.DiseaseViewData>
 
 
 @{
@@ -24,27 +24,36 @@
         }
 </style>
 <p>
-    @Html.ActionLink("إضافة نوع مرض جديد", "Create")
+    @Html.ActionLink("إضافة مرض جديد", "Create")
 </p>
-<table id="anilst" class="table">
-    <tr>
-        <th>
-          نوع المرض
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiseaseType)
-        </td>
-        <td>
-            @Html.ActionLink("تعديل", "Edit", new { id=item.DisId }) |
-            @Html.ActionLink("حذف", "Delete", new { id=item.DisId })
-        </td>
-    </tr>
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.NextPrevious);
 }
+<div id="mPstContent">
+    @grid.GetHtml(
+        tableStyle: "table table-responsive",
+    columns: grid.Columns(
+                        grid.Column(header: "م", format: @<text><div>@(item.WebGrid.Rows.IndexOf(item) + 1)</div></text>),
+                        //grid.Column(header: "??? ???????", format: (item) => Html.Raw("<span class='getId'>" + item.ItemId+ "</span>")),
+                        grid.Column(header: "إسم المرض", format: (item) => Html.Raw("<span>" + item.DiseaseType + "</span>")),
+                        grid.Column(header: "المجموعة", format: (item) => Html.Raw("<span>" + item.DType + "</span>")),
+                        grid.Column(header: "نوع الخدمة العلاجية", format: (item) => Html.Raw("<span>" + item.trtType + "</span>")),
+                        grid.Column("", style: "button", format: @<text>
+                            <a href='@Url.Action("Edit","Diseases",new{id=item.DisId})'>
+                                <img src="~/Content/Images/Assets/edit.png" style="width:2rem;" />
+                            </a>|
+                            @*<a href='@Url.Action("Details","SampleTest",new{id=item.Id})'>
+                                    <img src="~/Content/Images/Assets/list.png" style="width:2rem;" />
+                                </a>|*@
+                            <a href='@Url.Action("DeleteConfirmed","Diseases",new{id=item.DisId})' , onclick="return confirm('؟هل تريد فعلا حذف البيانات');">
+                                <img src="~/Content/Images/Assets/delete.png" style="width:2rem;" />
+                            </a>
+                        </text>)
+                           )
+                     )
+</div>
 
-</table>
 @Html.PagedListPager(Model, page => Url.Action("Index", new {page}))

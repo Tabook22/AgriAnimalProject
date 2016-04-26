@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AnimalVaccProject.Models.DiseaseType>
+
+@{
+    ViewBag.Title = " القائمةالرئيسية لمجموعات أمراض الحيوان";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+.header{
+    text-align:right;
+            border-bottom:2px solid #222;
+background-color:#DFF0D8;
+        }
+
+    </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("إضافة جديد", "Create")
+    </p>
+    <table class="table">
+        <tr class="header">
+            <th style="text-align:right;">
+             الإسم
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DType)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

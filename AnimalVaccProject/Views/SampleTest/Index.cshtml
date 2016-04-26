@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("إضافة عينة جديدة", "Create")
 </p>
 
 
@@ -19,7 +19,7 @@
     @grid.GetHtml(
         tableStyle: "table table-responsive",
     columns: grid.Columns(
-                        grid.Column(header: "NO.", format: @<text><div>@(item.WebGrid.Rows.IndexOf(item) + 1)</div></text>),
+                        grid.Column(header: "م.", format: @<text><div>@(item.WebGrid.Rows.IndexOf(item) + 1)</div></text>),
                         //grid.Column(header: "??? ???????", format: (item) => Html.Raw("<span class='getId'>" + item.ItemId+ "</span>")),
                         grid.Column(header: "تاريخ العينة", format: (item) => string.Format("{0:dd/MM/yyyy}", item.SampleDate)),
                         grid.Column(header: "رقم العينة", format: (item) => Html.Raw("<span>" + item.SampleNo + "</span>")),

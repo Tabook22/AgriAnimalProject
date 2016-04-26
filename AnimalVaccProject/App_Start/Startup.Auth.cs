@@ -24,6 +24,7 @@ namespace AnimalVaccProject
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
+                //notice ApplicaitonCookie is the current authentication type we are using, but there are more option
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
