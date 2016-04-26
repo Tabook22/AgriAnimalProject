@@ -195,9 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201603260151368_Update1.cs" />
-    <Compile Include="Migrations\201603260151368_Update1.Designer.cs">
-      <DependentUpon>201603260151368_Update1.cs</DependentUpon>
+    <Compile Include="Migrations\201604261854494_Update1.cs" />
+    <Compile Include="Migrations\201604261854494_Update1.Designer.cs">
+      <DependentUpon>201604261854494_Update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -277,6 +277,7 @@
     <Content Include="Content\Images\ui-icons_777777_256x240.png" />
     <Content Include="Content\Images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Images\users.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\nav.css" />
     <Content Include="Content\PagedList.css" />
@@ -592,8 +593,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603260151368_Update1.resx">
-      <DependentUpon>201603260151368_Update1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604261854494_Update1.resx">
+      <DependentUpon>201604261854494_Update1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,7 +18,7 @@ namespace AnimalVaccProject.Models
         public int SampleType { get; set; }
         public string SampleNo { get; set; }
         public int Results { get; set; }
-
+        public string UserId { get; set; }
         public virtual tbl_Farmer  framer { get; set; }
     }
 }

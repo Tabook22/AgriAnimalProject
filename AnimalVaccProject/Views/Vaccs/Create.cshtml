@@ -1,9 +1,10 @@
 ﻿@model AnimalVaccProject.Models.tbl_Vacc
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Create";
+    var getUserID = User.Identity.GetUserId(); //getting the user id and add it with any addtion to vacction services
 }
-
 <h2>إضافة خدمة التحصين</h2>
 <div>
     @Html.ActionLink("عودة لقائمة التحصينات", "Index")

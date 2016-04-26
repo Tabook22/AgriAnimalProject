@@ -1,26 +1,44 @@
 ﻿@using Microsoft.AspNet.Identity
 @using System.Security.Claims
+
+<style>
+    .logff{
+        font-size:1.5rem;
+        color:red;
+        font-weight:bold;
+        text-decoration:none;
+    }
+</style>
 @if (Request.IsAuthenticated)
             {
-    // we are doing the follwoing steps just to use name of the user insted of its username
+                // we are doing the follwoing steps just to use name of the user insted of its username
                 var identity = (ClaimsIdentity)User.Identity;
                 var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName ();
+                //var lastName=identity.FindFirstValue (ClaimTypes.GivenName) ?? identity.GetUserName();
+                var userId = User.Identity.GetUserId();
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                 {
                     @Html.AntiForgeryToken()
 
-                    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("مرحبا " +name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
-}
-else
-{
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <img src="~/Content/Images/users.png" style="width:50px;" />
+
+            </li>
+            <li>
+
+                @Html.ActionLink("مرحبا " + name + "-", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "logff", title = "Manage" })
+            </li>
+            <li>
+                <a class="logff" href="javascript:document.getElementById('logoutForm').submit()">خروج<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+                        }
+                    }
+                    else
+                    {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("تسجيل", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("دخول", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

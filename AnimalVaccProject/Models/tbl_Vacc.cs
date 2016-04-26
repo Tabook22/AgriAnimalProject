@@ -38,6 +38,7 @@ namespace AnimalVaccProject.Models
         public int FarmerId { get; set; }
 
         public int vaccTool { get; set; }
+        public string UserId { get; set; }
 
         public virtual tbl_Farmer farmer { get; set; }
         public virtual tbl_Animal animal { get; set; }

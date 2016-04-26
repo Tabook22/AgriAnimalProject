@@ -18,5 +18,6 @@ namespace AnimalVaccProject.Models
         public string TreType { get; set; }
         public int TotalNo { get; set; }
         public int SampleType { get; set; }
+        public string UserId { get; set; }
     }
 }

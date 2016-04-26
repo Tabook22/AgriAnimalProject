@@ -218,8 +218,6 @@ C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microso
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.Migrations.Update1.resources
-C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csproj.GenerateResource.Cache
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.dll
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.pdb
 C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csprojResolveAssemblyReference.cache
@@ -298,3 +296,5 @@ C:\Users\USER-PC\Desktop\githubfiles\AgriAnimalProject\AnimalVaccProject\obj\Deb
 C:\Users\USER-PC\Desktop\githubfiles\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csproj.GenerateResource.Cache
 C:\Users\USER-PC\Desktop\githubfiles\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.dll
 C:\Users\USER-PC\Desktop\githubfiles\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.pdb
+C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.Migrations.Update1.resources
+C:\Users\Nasser\Desktop\MyGitHup\AgriAnimalProject\AnimalVaccProject\obj\Debug\AnimalVaccProject.csproj.GenerateResource.Cache
