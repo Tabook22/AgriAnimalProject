@@ -68,10 +68,11 @@ namespace AnimalVaccProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId,vaccTool")] tbl_Vacc tbl_Vacc)
+        public ActionResult Create([Bind(Include = "Id,AgriCert,VaccDate,AId,DoseId,DisId,TotalNo,FarmerId,vaccTool,userId")] tbl_Vacc tbl_Vacc)
         {
             if (ModelState.IsValid)
-            {
+            { 
+
                 db.vaccinations.Add(tbl_Vacc);
                 db.SaveChanges();
                 return RedirectToAction("Index");
